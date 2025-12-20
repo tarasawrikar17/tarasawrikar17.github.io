@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Gallery - Tara Sawrikar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Cutive&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cutive', serif;
+    color: #3e2b6f;
+    background: linear-gradient(135deg, #99b3cf 0%, #ffd966 100%);
+    min-height: 100vh;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(189, 179, 212, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(62, 43, 111, 0.3);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #3e2b6f;
+    font-weight: 700;
+    font-family: 'Goldman', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    font-family: 'Goldman', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.intro {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+/* ---------- MASONRY GALLERY ---------- */
+
+.art-gallery {
+    column-count: 3;
+    column-gap: 3rem;
+}
+
+@media (max-width: 1000px) {
+    .art-gallery { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .art-gallery { column-count: 1; }
+}
+
+.art-item {
+    break-inside: avoid;
+    margin-bottom: 3rem;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.art-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.art-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.art-item:hover img {
+    transform: scale(1.02);
+}
+
+/* ---------- CAPTIONS ---------- */
+
+.caption {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.caption span {
+    display: block;
+    font-style: italic;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+/* ---------- LIGHTBOX ---------- */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 2rem;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+/* ---------- BUTTON / FOOTER ---------- */
+
+.back-button {
+    display: block;
+    margin: 3rem auto 0;
+    width: fit-content;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #f27070 0%, #f1a04b 50%, #ffd966 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Goldman', sans-serif;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    margin-top: 4rem;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index.html#about">ABOUT ME</a></li>
+        <li><a href="index.html#projects">PROJECTS</a></li>
+        <li><a href="index.html#resume">RESUME</a></li>
+        <li><a href="index.html#contact">CONTACT</a></li>
+        <li><a href="art.html">ART</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+<h1>my artwork</h1>
+<p class="intro">
+A collection of my creative pieces exploring themes of nature,
+sustainability, and mixed media techniques.
+</p>
+
+<div class="art-gallery">
+
+<div class="art-item"><img src="Portfolio-images/Beetle.jpeg"><div class="caption">Reaching for Renewal<span>Magazine cutouts, newspaper, watercolor, acrylic paint</span></div></div>
+<div class="art-item"><img src="Portfolio-images/ButcheredPig.jpeg"><div class="caption">Butchered Pig<span>Cardboard, paper napkins, tape, acrylic paint</span></div></div>
+<div class="art-item"><img src="Portfolio-images/EarMouse.jpeg"><div class="caption">Vacanti "Ear" Mouse<span>Newspaper, cardboard, watercolor</span></div></div>
+<div class="art-item"><img src="Portfolio-images/FastFashionFish.jpeg"><div class="caption">Fast Fashion Fish<span>Scrap fabric, cardboard, glue</span></div></div>
+<div class="art-item"><img src="Portfolio-images/LobsterBoiling.jpeg"><div class="caption">Lobster Boiling<span>Tinfoil, plastic bag, watercolor, cardboard</span></div></div>
+<div class="art-item"><img src="Portfolio-images/Monarch.jpeg"><div class="caption">Habitat Lost<span>Rabbit hair, fabric, beads, thread</span></div></div>
+<div class="art-item"><img src="Portfolio-images/Oysterplate.jpeg"><div class="caption">What Goes Around Comes Around<span>Found trash, colored pencil, watercolor</span></div></div>
+<div class="art-item"><img src="Portfolio-images/PaintedHermitCrab.jpeg"><div class="caption">Painted Hermit Crab<span>Watercolor, paint marker, colored pencil</span></div></div>
+<div class="art-item"><img src="Portfolio-images/Sardines.jpeg"><div class="caption">Stronger Together<span>Netting, cardboard, watercolor</span></div></div>
+<div class="art-item"><img src="Portfolio-images/SeastarWasting.jpeg"><div class="caption">Sea Star Wasting Syndrome<span>Linocut stamp, printing ink</span></div></div>
+<div class="art-item"><img src="Portfolio-images/StillLife.jpeg"><div class="caption">Still Life<span>Magazine, ink, cardboard</span></div></div>
+<div class="art-item"><img src="Portfolio-images/Veal.jpeg"><div class="caption">Forced Tenderness<span>Watercolor, twine, glue</span></div></div>
+
+</div>
+
+<a href="index.html" class="back-button">← back to portfolio</a>
+</div>
+
+<footer>
+<p>&copy; 2025 Tara Sawrikar. Built with passion and curiosity.</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <img src="" alt="">
+</div>
+
+<script>
+/* ---------- LIGHTBOX ---------- */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+
+document.querySelectorAll('.art-item img').forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+    });
+});
+
+lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+});
+
+/* ---------- FADE-IN ON SCROLL ---------- */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.art-item').forEach(item => {
+    observer.observe(item);
+});
+</script>
+
+</body>
+</html>
