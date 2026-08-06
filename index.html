@@ -1,494 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tara Sawrikar - Portfolio</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Cutive&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cutive', serif;
-            line-height: 1.6;
-            color: #3e2b6f;
-            background: linear-gradient(135deg, #99b3cf 0%, #ffd966 100%);
-        }
-
-        /* NAVIGATION */
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(189, 179, 212, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 2rem;
-            box-shadow: 0 2px 8px rgba(62, 43, 111, 0.3);
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #3e2b6f;
-            font-weight: 700;
-            font-family: 'Goldman', sans-serif;
-            transition: color 0.3s, border-bottom 0.3s;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: #f27070;
-            border-bottom: 2px solid #f27070;
-            padding-bottom: 0.2rem;
-        }
-
-        /* SECTIONS */
-
-        section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 6rem 2rem 4rem;
-            min-height: 100vh;
-            scroll-margin-top: 120px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Goldman', sans-serif;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin: 3rem 0 1.5rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin: 2rem 0 1rem;
-        }
-
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* HERO */
-
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-image {
-            width: 480px;
-            max-width: 95%;
-            margin: 2rem 0;
-            box-shadow: 0 6px 20px rgba(62, 43, 111, 0.3);
-        }
-
-        .hero-image {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hero-image:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 30px rgba(62, 43, 111, 0.4);
-        }
-
-        .about-image {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .about-image img {
-            width: 600px;
-            max-width: 95%;
-            box-shadow: 0 6px 20px rgba(62, 43, 111, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .about-image img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 30px rgba(62, 43, 111, 0.4);
-        }
-
-        .contact-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-text {
-            flex: 1 1 300px;
-        }
-
-        .contact-image img {
-            max-width: 350px;
-            width: 100%;
-            box-shadow: 0 6px 20px rgba(62, 43, 111, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .contact-image img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 30px rgba(62, 43, 111, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .contact-box {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-image img {
-                max-width: 100%;
-                margin-top: 1rem;
-            }
-        }
-
-        /* HIGHLIGHT BOX */
-
-        .highlight-box {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 8px rgba(62, 43, 111, 0.2);
-            border: 2px solid #f1a04b;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .highlight-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 16px rgba(242, 112, 112, 0.4);
-        }
-
-        /* PROJECTS */
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(62, 43, 111, 0.15);
-            border: 2px solid #ffd966;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(242, 112, 112, 0.3);
-        }
-
-        .project-card img {
-            width: 100%;
-            
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 8px rgba(62, 43, 111, 0.2);
-        }
-
-        /* TAGS */
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            background: #bdb3d4;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-        }
-
-        /* CTA */
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #f27070, #f1a04b, #ffd966);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            margin: 1rem 0.5rem;
-            font-family: 'Goldman', sans-serif;
-            transition: transform 0.2s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(242, 112, 112, 0.5);
-        }
-
-        /* LINKS */
-
-        .highlight-box a {
-            color: #f27070;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .highlight-box a:hover {
-            text-decoration: underline;
-        }
-
-        /* FADE-IN ANIMATIONS */
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            section {
-                padding: 5rem 1.5rem 3rem;
-            }
-        }
-
-        .highlight-box .cta-button {
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-    nav {
-        padding: 0.75rem 1rem;
-    }
-
-    @media (max-width: 768px) {
-    nav ul {
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    nav a {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 768px) {
-    section {
-        scroll-margin-top: 80px;
-    }
-}
-
-}
-
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tara Sawrikar builds real-time renderers, OpenUSD pipelines, and artist-facing production tools.">
+  <meta name="theme-color" content="#080b12">
+  <meta property="og:title" content="Tara Sawrikar — Graphics & Pipeline Engineering">
+  <meta property="og:description" content="Real-time rendering, OpenUSD workflows, and production tools for artists.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tarasawrikar.com/">
+  <meta property="og:image" content="https://tarasawrikar.com/assets/projects/renderer/demo.gif">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://tarasawrikar.com/">
+  <title>Tara Sawrikar | Graphics & Pipeline Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Tara Sawrikar home"><span class="brand-mark" aria-hidden="true">TS</span><span>Tara Sawrikar</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="art.html">Art</a><a href="#contact">Contact</a>
+      <a class="nav-cta" href="resume/Tara_Sawrikar_Resume_2026.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
+    </nav>
+  </header>
 
-<nav>
-    <ul>
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT ME</a></li>
-        <li><a href="#projects">PROJECTS</a></li>
-        <li><a href="resume.html">RESUME</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-        <li><a href="art.html">ART</a></li>
-    </ul>
-</nav>
+  <main id="main">
+    <section class="hero section" id="top">
+      <h1 class="hero-name reveal">Tara Sawrikar</h1>
+      <figure class="hero-media reveal">
+        <img src="assets/projects/renderer/hero-renderer.webp" width="1400" height="819" alt="OpenUSD renderer output showing seven PBR materials, a robot scene, and runtime scene diagnostics">
+        <figcaption><span>OpenUSD scene pipeline</span><strong>Blender → USD → GPU</strong></figcaption>
+      </figure>
+      <p class="hero-status reveal">At the moment I am…</p>
+      <nav class="hero-actions reveal" aria-label="Explore Tara's portfolio">
+        <a class="hero-action-card" href="#work"><strong>Building Cool Projects</strong><span>View selected work</span></a>
+        <a class="hero-action-card" href="#experience"><strong>Gaining Experience</strong><span>View experience</span></a>
+        <a class="hero-action-card" href="#contact"><strong>Exploring Opportunities</strong><span>Let’s connect</span></a>
+      </nav>
+    </section>
 
-<section id="home" class="hero fade-in">
-    <h1>Tara Sawrikar</h1>
-    <img src="rainbow.png" alt="Colorful fish artwork" class="hero-image" />
-    <p style="font-size: 1.3rem;">At the moment I am...</p>
+    <section class="section work" id="work">
+      <div class="section-heading reveal"><h2>Selected work</h2><p>Open each GitHub repository for implementation details.</p></div>
 
-    <div>
-        <div class="highlight-box fade-in">
-            <h3>Studying Computer Science and Mathematics at Harvey Mudd College</h3>
-            <a href="#about" class="cta-button">learn more about me</a>
+      <article class="project project-featured reveal">
+        <div class="project-media renderer-still"><img src="assets/projects/renderer/demo.gif" width="800" height="493" alt="Animated comparison between a Blender-authored scene and its imported real-time renderer output"></div>
+        <div class="project-copy"><p class="project-index">01 — GRAPHICS ENGINEERING · 2026</p><h3>Physically Based OpenUSD Renderer</h3><p>An individual C++17 renderer that imports Blender-authored OpenUSD scenes and reconstructs geometry, hierarchy, cameras, lights, and materials for interactive OpenGL rendering.</p>
+          <ul class="project-points"><li>Cook–Torrance BRDF using GGX, Smith geometry, and Schlick Fresnel</li><li>Recursive USD traversal with hierarchical transform propagation</li><li>Material and scene diagnostics through Dear ImGui</li></ul>
+          <div class="tags"><span>C++17</span><span>OpenGL</span><span>GLSL</span><span>OpenUSD</span><span>Blender</span><span>CMake</span></div>
+          <div class="link-row"><a class="text-link" href="https://github.com/tarasawrikar17/physically-based-openusd-renderer" target="_blank" rel="noreferrer">View GitHub ↗</a></div>
         </div>
+      </article>
 
-        <div class="highlight-box fade-in">
-            <h3>Building Cool Projects</h3>
-            <a href="#projects" class="cta-button">check out my projects</a>
-        </div>
+      <div class="project-grid">
+        <article class="project-card reveal"><div class="card-media"><img src="assets/projects/maya/demo.gif" width="800" height="521" alt="Animated demo of the Maya Asset Publisher validating and publishing an asset"></div><p class="project-index">02 — PIPELINE · 2026</p><h3>Maya Asset Publisher</h3><p>An individual Python tool that validates Maya scenes, blocks invalid publishes, versions assets, captures thumbnails, writes metadata, and exports Maya ASCII and USD deliverables.</p><div class="tags"><span>Python</span><span>Maya API</span><span>OpenUSD</span><span>JSON</span></div><div class="link-row"><a class="text-link" href="https://github.com/tarasawrikar17/maya-asset-publisher" target="_blank" rel="noreferrer">View GitHub ↗</a></div></article>
+        <article class="project-card reveal"><div class="card-media"><img src="assets/projects/unity/demo.gif" width="800" height="519" alt="Animated demo of the Unity Asset Validator scanning assets and applying a quick fix"></div><p class="project-index">03 — EDITOR TOOLING · 2026</p><h3>Unity Asset Validator</h3><p>An individual Unity 6 editor extension that scans textures, materials, and prefabs; groups actionable findings; supports selected quick fixes; and exports CSV reports.</p><div class="tags"><span>C#</span><span>Unity Editor API</span><span>IMGUI</span><span>CSV</span></div><div class="link-row"><a class="text-link" href="https://github.com/tarasawrikar17/unity-asset-validator" target="_blank" rel="noreferrer">View GitHub ↗</a></div></article>
+      </div>
+    </section>
 
-        <div class="highlight-box fade-in">
-            <h3>Exploring Opportunities</h3>
-            <p>Always looking for new challenges and experiences</p>
-            <a href="resume.html" class="cta-button">download my resume</a>
-        </div>
-    </div>
-</section>
+    <section class="section experience" id="experience"><div class="section-heading reveal"><p class="eyebrow">Experience</p><h2>Production software, research, and leadership.</h2></div><div class="timeline">
+      <article class="timeline-item reveal"><div class="timeline-meta"><span>May–Aug 2026</span><span>Boston, MA</span></div><div class="experience-body"><div class="experience-heading"><h3>Software Engineering Intern <small>QSimulate</small></h3><img class="experience-logo" src="assets/experience/qsimulate-logo.png" width="1139" height="707" alt="QSimulate"></div><ul class="experience-points"><li>Developed production frontend features for interactive quantum-simulation results, using TypeScript, WebAssembly, and JSON scientific data to render molecular structures and orbitals.</li><li>Led the implementation of Vitest screenshot-testing infrastructure, establishing visual-regression coverage across the frontend; the framework was merged and adopted in the production repository.</li><li>Authored component and integration tests for complex scientific workflows while contributing approximately 200 GitHub contributions across the production codebase.</li></ul><div class="tags"><span>React</span><span>TypeScript</span><span>Vitest</span><span>WebAssembly</span></div></div></article>
+      <article class="timeline-item reveal"><div class="timeline-meta"><span>Jan 2026–Present</span><span>Harvey Mudd</span></div><div class="experience-body"><h3>Student Researcher <small>FICUS Lab</small></h3><div class="experience-feature"><div><p>Apply machine learning, Python data analysis, and quantitative modeling to atmospheric and environmental research. My work spans terpene emissions, atmospheric chemistry, field data collection, and computational studies of how plants interact with air quality and climate.</p><p>For my independent study, I analyzed eddy-covariance CO₂ flux and rainfall data from coastal sage scrub to identify short-lived rainfall-triggered respiration pulses known as the Birch Effect. I presented the results in a research poster, including the limits imposed by rain-related sensor noise and a small number of usable storm events.</p><div class="tags"><span>Python</span><span>Machine Learning</span><span>Environmental Data</span><span>Quantitative Modeling</span></div></div><a class="poster-link" href="assets/experience/ficus-poster.pdf" target="_blank" rel="noreferrer"><img src="assets/experience/ficus-poster.webp" width="1600" height="1254" alt="Research poster titled Rainfall-Triggered CO2 Pulses in the California Coastal Sage Scrub"><span>Open full research poster ↗</span></a></div></div></article>
+      <article class="timeline-item reveal"><div class="timeline-meta"><span>2024–Present</span><span>Harvey Mudd</span></div><div class="experience-body"><h3>Leadership, Engineering & Community <small>Harvey Mudd College</small></h3><p>Lead and support student organizations at the intersection of accessibility, engineering, mentorship, outreach, and community building.</p><figure class="leadership-photo"><img src="assets/experience/adaptive-design.png" width="1218" height="784" alt="Adaptive Design at Mudd team members at a community toy drive with adapted products and project displays"><figcaption>Adaptive Design at Mudd</figcaption></figure><ul class="leadership-list"><li><strong>Adaptive Design at Mudd — Leadership Team & Pilgrim Place Liaison</strong><span>Adapt products to increase accessibility for people with disabilities and coordinate the team’s community partnership with Pilgrim Place.</span></li><li><strong>Harvey Mudd Racing — Treasurer</strong><span>Support the design and construction of an internal-combustion Formula SAE car for competition.</span></li><li><strong>Gender Equity in Math — Leadership Team</strong><span>Build mentorship, community, and outreach for underrepresented genders in mathematics.</span></li><li><strong>Science Day — Leadership Team</strong><span>Create hands-on STEM activities through Science Bus to inspire curiosity in local communities.</span></li><li><strong>APISPAM — Mentor</strong><span>Build community and advocate for Asian and Pacific Islander students through mentorship and campus initiatives.</span></li></ul></div></article>
+    </div></section>
 
-<section id="about" class="fade-in">
-    <h2>about me</h2>
-
-    <div class="about-image">
-        <img src="fashionfish.png" alt="About Me Image">
-    </div>
-
-    <h2></h2>
-
-    <div class="about-container">
-        <div class="about-text">
-            <p>Hi! I'm a first year at Harvey Mudd College pursuing a joint major in Computer Science and Mathematics. I am passionate about numbers and using data to solve complex problems.</p>
-
-            <p>Currently, I'm working in the FICUS Lab researching machine learning capabilities for air quality and climate. I am part of the leadership team for Adaptive Design at Mudd, where we develop products to increase accessibility for individuals with disabilities.</p>
-
-            <p>Previously, I interned for Clean Properties Engineering, performed computational research understanding how the Monsoon Season in South Asia impacts the frequency and magnitude of earthquakes in the Himalayan region, and interned at Boston College's Seismic Observatory.</p>
-
-            <p>When I'm not coding, you can find me playing Minesweeper. I love painting, potatoes, and movies.</p>
-
-            <h3>skills & interests</h3>
-            <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Java</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Web Development</span>
-                <span class="tag">UI/UX Design</span>
-                <span class="tag">Excel</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="projects" class="fade-in">
-    <h2>projects</h2>
-
-    <div class="project-grid">
-        <div class="project-card fade-in">
-            <img src="GOL.png" alt="Conway's Game of Life">
-            <h3>My version of Conway's Game Of Life</h3>
-            <p>An interactive Python implementation of Conway's Game of Life with a colorful tkinter GUI and terminal visualization. Features clickable cells to create custom patterns, spacebar pause/resume controls, and gradient coloring based on neighbor count. Includes pre-loaded patterns like gliders and oscillators to demonstrate emergent complexity.</p>
-            <a href="https://github.com/tarasawrikar17/my-conways-game-of-life" class="cta-button" target="_blank">GitHub</a>
-        </div>
-
-        <div class="project-card fade-in">
-            <img src="four.png" alt="Connect Four AI">
-            <h3>Connect Four with Intelligent AI</h3>
-            <p>A Python Connect Four game with an intelligent AI opponent that strategically evaluates moves by looking ahead to block wins, create winning opportunities, and maximize positional advantage. The AI scores potential moves based on 2-in-a-row, 3-in-a-row, and 4-in-a-row patterns while prioritizing center control.</p>
-            <a href="https://github.com/tarasawrikar17/AI-Connect4" class="cta-button" target="_blank">GitHub</a>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="fade-in">
-    <h2>get in touch</h2>
-
-    <div class="highlight-box contact-box">
-        <div class="contact-text">
-            <p><strong>Email:</strong> <a href="mailto:Tsawrikar@g.hmc.edu">Tsawrikar@g.hmc.edu</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/tarasawrikar17">github.com/tarasawrikar17</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/tara-sawrikar-07434b345">LinkedIn</a></p>
-            <p><strong>Letterboxd:</strong> <a href="https://boxd.it/bQVcR">boxd.it/bQVcR</a></p>
-
-            <a href="mailto:Tsawrikar@g.hmc.edu" class="cta-button">send me an email</a>
-        </div>
-
-        <div class="contact-image">
-            <img src="pom.png" alt="Contact Image">
-        </div>
-    </div>
-</section>
-
-<footer>
-    <p>&copy; 2025 Tara Sawrikar. Built with passion and curiosity.</p>
-</footer>
-
-<script>
-/* Smooth scrolling */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href'))
-            .scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-/* Active nav highlight */
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a[href^='#']");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-        if (pageYOffset >= section.offsetTop - 130) {
-            current = section.id;
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
-            link.classList.add("active");
-        }
-    });
-});
-
-/* Fade-in observer */
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-});
-
-document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-</script>
-
+    <section class="section about" id="about"><div class="about-copy reveal"><p class="eyebrow">About</p><h2>Where engineering and visual storytelling meet.</h2><p>I’m a Computer Science and Mathematics student at Harvey Mudd College interested in graphics programming, rendering, production pipelines, and developer tools. I build systems that make complex workflows clearer and more useful for artists.</p><p>Outside of code, I paint, watch movies, play Minesweeper, and work on sustainability and accessibility projects.</p><a class="text-link" href="art.html">See my artwork ↗</a></div><div class="skills reveal"><div><h3>Languages</h3><p>Python · C++ · C# · TypeScript · JavaScript · Java</p></div><div><h3>Graphics & DCC</h3><p>OpenUSD · OpenGL · GLSL · Maya · Blender · Unity</p></div><div><h3>Libraries & Tools</h3><p>React · Vitest · Dear ImGui · GLFW · GLEW · GLM · CMake · Git</p></div></div></section>
+    <section class="section contact reveal" id="contact"><p class="eyebrow">Let’s connect</p><h2>Interested in exploring graphics, tools, and creative technology together?</h2><p>I’m always excited to exchange ideas, expand my knowledge, and explore new projects, collaborations, and opportunities.</p><div class="button-row"><button class="button primary" type="button" data-copy-email="Tsawrikar@g.hmc.edu" aria-live="polite">Tsawrikar@g.hmc.edu</button><a class="button secondary" href="resume/Tara_Sawrikar_Resume_2026.pdf" target="_blank" rel="noreferrer">View resume</a></div></section>
+  </main>
+  <footer><span>© <span id="year">2026</span> Tara Sawrikar</span><span>Designed & built from scratch.</span></footer>
 </body>
 </html>

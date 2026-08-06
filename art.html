@@ -1,263 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Art Gallery - Tara Sawrikar</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Cutive&display=swap" rel="stylesheet">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Cutive', serif;
-    color: #3e2b6f;
-    background: linear-gradient(135deg, #99b3cf 0%, #ffd966 100%);
-    min-height: 100vh;
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(189, 179, 212, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem 2rem;
-    box-shadow: 0 2px 8px rgba(62, 43, 111, 0.3);
-    z-index: 1000;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-}
-
-nav a {
-    text-decoration: none;
-    color: #3e2b6f;
-    font-weight: 700;
-    font-family: 'Goldman', sans-serif;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 8rem 2rem 4rem;
-}
-
-h1 {
-    font-size: 3.5rem;
-    text-align: center;
-    font-family: 'Goldman', sans-serif;
-    margin-bottom: 1rem;
-}
-
-.intro {
-    text-align: center;
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 3rem;
-}
-
-/* ---------- MASONRY GALLERY ---------- */
-
-.art-gallery {
-    column-count: 3;
-    column-gap: 3rem;
-}
-
-@media (max-width: 1000px) {
-    .art-gallery { column-count: 2; }
-}
-
-@media (max-width: 600px) {
-    .art-gallery { column-count: 1; }
-}
-
-.art-item {
-    break-inside: avoid;
-    margin-bottom: 3rem;
-    text-align: center;
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.art-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.art-item img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.art-item:hover img {
-    transform: scale(1.02);
-}
-
-/* ---------- CAPTIONS ---------- */
-
-.caption {
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    opacity: 0.85;
-}
-
-.caption span {
-    display: block;
-    font-style: italic;
-    font-size: 0.9rem;
-    opacity: 0.75;
-}
-
-/* ---------- LIGHTBOX ---------- */
-
-.lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 2rem;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.lightbox.active {
-    display: flex;
-}
-
-/* ---------- BUTTON / FOOTER ---------- */
-
-.back-button {
-    display: block;
-    margin: 3rem auto 0;
-    width: fit-content;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #f27070 0%, #f1a04b 50%, #ffd966 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-family: 'Goldman', sans-serif;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    background: white;
-    margin-top: 4rem;
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-    }
-}
-
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mixed-media artwork by Tara Sawrikar exploring material, nature, sustainability, and environmental storytelling.">
+  <title>Artwork | Tara Sawrikar</title>
+  <link rel="canonical" href="https://tarasawrikar.com/art.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><script src="script.js" defer></script>
 </head>
-
 <body>
-
-<nav>
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="index.html#about">ABOUT ME</a></li>
-        <li><a href="index.html#projects">PROJECTS</a></li>
-        <li><a href="index.html#resume">RESUME</a></li>
-        <li><a href="index.html#contact">CONTACT</a></li>
-        <li><a href="art.html">ART</a></li>
-    </ul>
-</nav>
-
-<div class="container">
-<h1>my artwork</h1>
-<p class="intro">
-A collection of my creative pieces exploring themes of nature,
-sustainability, and mixed media techniques.
-</p>
-
-<div class="art-gallery">
-
-<div class="art-item"><img src="Portfolio-images/Beetle.jpeg"><div class="caption">Reaching for Renewal<span>Magazine cutouts, newspaper, watercolor, acrylic paint</span></div></div>
-<div class="art-item"><img src="Portfolio-images/ButcheredPig.jpeg"><div class="caption">Butchered Pig<span>Cardboard, paper napkins, tape, acrylic paint</span></div></div>
-<div class="art-item"><img src="Portfolio-images/EarMouse.jpeg"><div class="caption">Vacanti "Ear" Mouse<span>Newspaper, cardboard, watercolor</span></div></div>
-<div class="art-item"><img src="Portfolio-images/FastFashionFish.jpeg"><div class="caption">Fast Fashion Fish<span>Scrap fabric, cardboard, glue</span></div></div>
-<div class="art-item"><img src="Portfolio-images/LobsterBoiling.jpeg"><div class="caption">Lobster Boiling<span>Tinfoil, plastic bag, watercolor, cardboard</span></div></div>
-<div class="art-item"><img src="Portfolio-images/Monarch.jpeg"><div class="caption">Habitat Lost<span>Rabbit hair, fabric, beads, thread</span></div></div>
-<div class="art-item"><img src="Portfolio-images/Oysterplate.jpeg"><div class="caption">What Goes Around Comes Around<span>Found trash, colored pencil, watercolor</span></div></div>
-<div class="art-item"><img src="Portfolio-images/PaintedHermitCrab.jpeg"><div class="caption">Painted Hermit Crab<span>Watercolor, paint marker, colored pencil</span></div></div>
-<div class="art-item"><img src="Portfolio-images/Sardines.jpeg"><div class="caption">Stronger Together<span>Netting, cardboard, watercolor</span></div></div>
-<div class="art-item"><img src="Portfolio-images/SeastarWasting.jpeg"><div class="caption">Sea Star Wasting Syndrome<span>Linocut stamp, printing ink</span></div></div>
-<div class="art-item"><img src="Portfolio-images/StillLife.jpeg"><div class="caption">Still Life<span>Magazine, ink, cardboard</span></div></div>
-<div class="art-item"><img src="Portfolio-images/Veal.jpeg"><div class="caption">Forced Tenderness<span>Watercolor, twine, glue</span></div></div>
-
-</div>
-
-<a href="index.html" class="back-button">← back to portfolio</a>
-</div>
-
-<footer>
-<p>&copy; 2025 Tara Sawrikar. Built with passion and curiosity.</p>
-</footer>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-    <img src="" alt="">
-</div>
-
-<script>
-/* ---------- LIGHTBOX ---------- */
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-
-document.querySelectorAll('.art-item img').forEach(img => {
-    img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('active');
-    });
-});
-
-lightbox.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    lightboxImg.src = '';
-});
-
-/* ---------- FADE-IN ON SCROLL ---------- */
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.art-item').forEach(item => {
-    observer.observe(item);
-});
-</script>
-
-</body>
-</html>
+  <a class="skip-link" href="#main">Skip to artwork</a>
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">TS</span><span>Tara Sawrikar</span></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button><nav id="site-nav" aria-label="Primary navigation"><a href="index.html#work">Work</a><a href="index.html#experience">Experience</a><a href="index.html#about">About</a><a href="art.html" aria-current="page">Art</a><a href="index.html#contact">Contact</a><a class="nav-cta" href="resume/Tara_Sawrikar_Resume_2026.pdf" target="_blank" rel="noreferrer">Resume ↗</a></nav></header>
+  <main id="main" class="section art-page"><div class="art-intro"><p class="eyebrow">Selected artwork</p><h1>Material, nature, and environmental storytelling.</h1><p>Mixed-media work exploring sustainability, biological systems, and the relationship between people and the natural world.</p></div><div class="gallery">
+    <figure class="art-item"><img src="assets/art/Beetle.webp" srcset="assets/art/Beetle-600.webp 600w, assets/art/Beetle.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="1577" alt="Collaged beetle reaching upward through layered botanical forms" loading="lazy" decoding="async"><figcaption class="caption"><strong>Reaching for Renewal</strong><span>Magazine, newspaper, watercolor, acrylic</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/ButcheredPig.webp" srcset="assets/art/ButcheredPig-600.webp 600w, assets/art/ButcheredPig.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="811" alt="Sculptural butchered pig assembled from cardboard and painted paper" loading="lazy" decoding="async"><figcaption class="caption"><strong>Butchered Pig</strong><span>Cardboard, paper napkins, tape, acrylic</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/EarMouse.webp" width="440" height="563" alt="Newspaper and watercolor study of the Vacanti mouse with an ear-shaped form" loading="lazy" decoding="async"><figcaption class="caption"><strong>Vacanti “Ear” Mouse</strong><span>Newspaper, cardboard, watercolor</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/FastFashionFish.webp" srcset="assets/art/FastFashionFish-600.webp 600w, assets/art/FastFashionFish.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="831" alt="Fish sculpture assembled from overlapping scraps of colorful fabric" loading="lazy" decoding="async"><figcaption class="caption"><strong>Fast Fashion Fish</strong><span>Scrap fabric, cardboard, glue</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/LobsterBoiling.webp" srcset="assets/art/LobsterBoiling-600.webp 600w, assets/art/LobsterBoiling.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="801" alt="Lobster sculpture made from foil and plastic inside a painted boiling pot" loading="lazy" decoding="async"><figcaption class="caption"><strong>Lobster Boiling</strong><span>Tinfoil, plastic bag, watercolor, cardboard</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/Monarch.webp" srcset="assets/art/Monarch-600.webp 600w, assets/art/Monarch.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="1225" alt="Textile monarch butterfly surrounded by fragmented habitat materials" loading="lazy" decoding="async"><figcaption class="caption"><strong>Habitat Lost</strong><span>Rabbit hair, fabric, beads, thread</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/Oysterplate.webp" srcset="assets/art/Oysterplate-600.webp 600w, assets/art/Oysterplate.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="1200" alt="Circular oyster composition constructed from found plastic trash" loading="lazy" decoding="async"><figcaption class="caption"><strong>What Goes Around Comes Around</strong><span>Found trash, colored pencil, watercolor</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/PaintedHermitCrab.webp" srcset="assets/art/PaintedHermitCrab-600.webp 600w, assets/art/PaintedHermitCrab.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="928" alt="Detailed painted hermit crab with a patterned shell" loading="lazy" decoding="async"><figcaption class="caption"><strong>Painted Hermit Crab</strong><span>Watercolor, paint marker, colored pencil</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/Sardines.webp" srcset="assets/art/Sardines-600.webp 600w, assets/art/Sardines.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="860" alt="School of watercolor sardines gathered beneath fishing netting" loading="lazy" decoding="async"><figcaption class="caption"><strong>Stronger Together</strong><span>Netting, cardboard, watercolor</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/SeastarWasting.webp" srcset="assets/art/SeastarWasting-600.webp 600w, assets/art/SeastarWasting.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="1714" alt="Repeated linocut sea stars progressively fragmenting from wasting syndrome" loading="lazy" decoding="async"><figcaption class="caption"><strong>Sea Star Wasting Syndrome</strong><span>Linocut stamp, printing ink</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/StillLife.webp" srcset="assets/art/StillLife-600.webp 600w, assets/art/StillLife.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="1722" alt="Layered magazine and ink still life with household vessels" loading="lazy" decoding="async"><figcaption class="caption"><strong>Still Life</strong><span>Magazine, ink, cardboard</span></figcaption></figure>
+    <figure class="art-item"><img src="assets/art/Veal.webp" srcset="assets/art/Veal-600.webp 600w, assets/art/Veal.webp 1200w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) calc(50vw - 31px), 379px" width="1200" height="1490" alt="Watercolor calf constrained by twine in a study of veal production" loading="lazy" decoding="async"><figcaption class="caption"><strong>Forced Tenderness</strong><span>Watercolor, twine, glue</span></figcaption></figure>
+  </div></main><footer><span>© <span id="year">2026</span> Tara Sawrikar</span><span>Art + engineering</span></footer>
+</body></html>
