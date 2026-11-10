@@ -136,15 +136,15 @@ button.button { cursor: pointer; font-family: inherit; }
 .experience-points li { margin-bottom: 10px; color: var(--ink-soft); }
 .experience-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .46fr); gap: 38px; align-items: start; }
 .poster-link, .leadership-photo { display: block; overflow: hidden; background: var(--paper); border: 2px solid var(--ink); border-radius: 3px 10px 4px 8px; box-shadow: 5px 6px 0 rgba(23,37,56,.13); text-decoration: none; }
-.poster-link { padding: 8px 8px 0; transform: rotate(1deg); }
+.poster-link { margin: 0; padding: 8px 8px 0; transform: rotate(1deg); }
 .poster-link img, .leadership-photo img { width: 100%; height: auto; border: 1px solid var(--ink); }
 .poster-link span, .leadership-photo figcaption { display: block; padding: 11px 6px; color: var(--ink); font: 700 11px "DM Mono", monospace; }
 .leadership-photo { margin: 28px 0 12px; padding: 10px 10px 0; transform: rotate(-.35deg); }
 .leadership-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; padding: 0; margin: 28px 0 0; list-style: none; }
 .leadership-list li { padding: 16px 0; border-top: 1px dashed var(--line); }
 .leadership-list strong, .leadership-list span { display: block; }
-.leadership-list strong { margin-bottom: 5px; color: var(--ink); font: 800 16px Manrope, system-ui, sans-serif; }
-.leadership-list span { color: var(--ink-soft); font-size: 13px; }
+.leadership-list strong { margin-bottom: 5px; color: var(--ink); font: 800 17px Manrope, system-ui, sans-serif; }
+.leadership-list span { color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
 
 .about { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; background: linear-gradient(125deg, rgba(170,181,138,.94), rgba(143,197,192,.92) 42%, rgba(255,249,235,.94) 42%, rgba(255,249,235,.94) 100%); border: 2px solid var(--ink); clip-path: polygon(0 3%, 98% 0, 100% 97%, 2% 100%); box-shadow: 10px 11px 0 rgba(23,37,56,.2); }
 .skills { position: relative; padding: 12px 26px; background: var(--paper); border: 2px solid var(--ink); box-shadow: var(--shadow); transform: rotate(.5deg); }
